@@ -14,6 +14,9 @@
           <li class="nav-item">
               <router-link class="nav-link"  :to="{ name: 'projects' }"><a>Portfolio</a></router-link>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">Blog</a>
+          </li>
         </ul>
       </div>
     </nav>

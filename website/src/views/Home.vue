@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
 
      <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
