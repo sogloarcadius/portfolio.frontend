@@ -22,16 +22,16 @@
       <div class="collapse navbar-collapse" id="">
         <ul class="navbar-nav">
           <li class="nav-item">
-              <router-link class="nav-link"  :to="{ name: 'home' }"><a>About</a></router-link>
+              <router-link class="nav-link"  :to="{ name: 'home' }"><a>{{ $t("menu.about") }}</a></router-link>
           </li>
           <li class="nav-item">
-              <router-link class="nav-link"  :to="{ name: 'projects' }"><a>Portfolio</a></router-link>
+              <router-link class="nav-link"  :to="{ name: 'projects' }"><a>{{ $t("menu.projects") }}</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">presentations</a>
+            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">{{ $t("menu.presentations") }}</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">Blog</a>
+            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">{{ $t("menu.blog") }}</a>
           </li>
         </ul>
       </div>
@@ -41,9 +41,10 @@
 
 <script>
 export default {
+
   methods: {
     changeLocale(locale){
-      console.log(locale);
+      this.$root.$i18n.locale = locale;
     }
   }
 };

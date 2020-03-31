@@ -3,7 +3,7 @@
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Portfolio</h1>
+            <h1 class="jumbotron-heading">{{ $t("menu.projects") }}</h1>
             <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore velit voluptatibus sapiente placeat fugiat debitis commodi optio, beatae, nostrum adipisci voluptas magnam. Suscipit dolorem labore magnam quis autem maiores adipisci.</p>
             <div>
                 <a href="#" class="btn">
