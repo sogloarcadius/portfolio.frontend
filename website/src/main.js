@@ -5,6 +5,10 @@ import App from '@/App'
 import router from '@/router'
 import store from '@/store'
 
+import DateFilter from "@/common/date.filter";
+
+Vue.filter("date", DateFilter);
+
 Vue.config.productionTip = false
 
 Vue.use(VueI18n)
