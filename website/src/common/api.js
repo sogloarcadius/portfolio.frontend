@@ -76,7 +76,7 @@ export const BiographyService = {
 
     about(locale){
       BaseApi.setLocale(locale);
-      return BaseApi.get(locale, 'api/me');
+      return BaseApi.get(locale, 'api/resume/biography');
     },
 
 }
@@ -93,7 +93,7 @@ export const ProjectService = {
 
   projects(locale){
     BaseApi.setLocale(locale);
-    return BaseApi.get('api', 'project');
+    return BaseApi.get(locale, 'api/projects');
   },
 
 }

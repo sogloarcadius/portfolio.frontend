@@ -3,24 +3,24 @@
 
      <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100" v-if="biography">
-        <h1 class="mb-0" >{{ biography[0].firstname}}
-          <span class="text-primary">{{ biography[0].surname }} </span>
+        <h1 class="mb-0" >{{ biography.firstname}}
+          <span class="text-primary">{{ biography.surname }} </span>
         </h1>
-        <div class="subheading mb-5">{{ biography[0].address}} ·
-          <a href="#">{{ biography[0].email}}</a>
+        <div class="subheading mb-5">{{ biography.address }} ·
+          <a href="#">{{ biography.email}}</a>
         </div>
-        <p class="lead mb-5">{{ biography[0].summary}}</p>
+        <p class="lead mb-5">{{ biography.summary }}</p>
         <div class="social-icons">
-          <a target="_blank" href="#">
+          <a target="_blank" :href="biography.linkedin">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a target="_blank" href="#">
+          <a target="_blank" :href="biography.github">
             <i class="fab fa-github"></i>
           </a>
-          <a target="_blank" href="#">
+          <a target="_blank" :href="biography.twitter">
             <i class="fab fa-twitter"></i>
           </a>
-          <a target="_blank" href="#">
+          <a target="_blank" :href="biography.facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
         </div>

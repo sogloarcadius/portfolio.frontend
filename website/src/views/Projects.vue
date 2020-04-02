@@ -4,7 +4,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">{{ $t("menu.projects") }}</h1>
-            <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore velit voluptatibus sapiente placeat fugiat debitis commodi optio, beatae, nostrum adipisci voluptas magnam. Suscipit dolorem labore magnam quis autem maiores adipisci.</p>
+            <p class="lead text-muted"></p>
             <div>
                 <a href="#" class="btn">
                    Category 1 <i class="fas fa-tags"></i>
@@ -29,7 +29,7 @@
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi minima sed eaque. Tempora laborum repellat culpa nesciunt sapiente ab suscipit perferendis saepe, cumque corporis, odit pariatur, hic numquam consectetur id?
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet animi aspernatur, id reiciendis neque laborum nostrum rem, in a vero sunt quo, facere earum voluptas ullam officia veritatis delectus numquam!</p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet animi aspernatur, id reiciendis neque laborum nostrum rem, in a vero sunt quo, facere earum voluptas ullam officia veritatis delectus numquam!
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet animi aspernatur, id reiciendis neque laborum nostrum rem, in a vero sunt quo, facere earum voluptas ullam officia veritatis delectus numquam!</p>
                     </div>
                     <div class="card-footer">
@@ -103,3 +103,55 @@
   </div>
   
 </template>
+
+<script>
+
+import { mapGetters, mapState } from "vuex";
+
+export default {
+
+    data() {
+        return {
+            category: null,
+        }
+    },
+
+    created(){
+        this.fetchProjects();
+    },
+
+    watch: {
+        '$root.$i18n.locale': "fetchProjects"
+    },
+
+    methods: {
+
+        fetchProjects(){
+            var filter = {
+                "category" : this.category,
+                "locale": this.$root.$i18n.locale
+            };
+            this.$store
+                .dispatch("project/projects", filter)
+                .then(() => this.$router.push({ name: "projects" })).catch(err => {})
+        }
+        
+    },
+
+  computed: {
+
+    
+    ...mapState({
+        projects: state => state.project.projects,
+        categories: state => state.project.categories
+    }),
+
+    /*...mapGetters("project", ["projects", "categories"]), */
+
+  }
+}
+
+</script>
+
+<style>
+</style>
