@@ -184,3 +184,8 @@ a:hover, a:focus, a:active {
 }
 
 
+.project-description  {
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font-family: inherit;
+}

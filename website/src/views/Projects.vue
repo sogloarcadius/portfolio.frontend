@@ -28,13 +28,12 @@
     <div class="">
         
         <div class="container">
-            
-           
+    
             <div class="row" v-if="projects">
-                <div v-for="currentProject in projects" :key="currentProject.title" class="card shadow-sm m-4 p-4 col-md-4">
+                <div v-for="currentProject in projects" :key="currentProject.title" class="card shadow-sm m-4 p-4 col-sm-12 col-md-5 col-lg-5">
                     <div class="card-body">
                         <h5 class="card-title">{{ currentProject.title }}</h5>
-                        <p class="card-text">{{ currentProject.description}}</p>
+                        <p class="card-text project-description">{{ currentProject.description }}</p>
                     </div>
                     <div class="card-footer">
                         <a v-if="currentProject.github" target="_blank" :href="currentProject.github" class="card-link">
