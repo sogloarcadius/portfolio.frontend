@@ -3,13 +3,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <div class="nav-item">
             <div class="row">
-                <a class="nav-link" @click="changeLocale('en')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.english")' @click="changeLocale('en')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/en.png" alt="" />
                 </a>
-                <a class="nav-link" @click="changeLocale('fr')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.french")' @click="changeLocale('fr')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/fr.png" alt="" />
                 </a>
-                <a class="nav-link" @click="changeLocale('es')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.spanish")' @click="changeLocale('es')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/es.png" alt="" />
                 </a>
             </div>
@@ -28,10 +28,10 @@
               <router-link class="nav-link"  :to="{ name: 'projects' }"><a>{{ $t("menu.projects") }}</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">{{ $t("menu.presentations") }}</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="https://sogloarcadius.github.io/presentations/" target="_blank">{{ $t("menu.blog") }}</a>
+            <div class="row justify-content-center">
+              <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.presentations")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fab fa-slideshare"></i></a>
+              <a class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fas fa-blog"></i></a>
+            </div>
           </li>
         </ul>
       </div>

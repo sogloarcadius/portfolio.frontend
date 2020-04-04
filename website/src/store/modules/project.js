@@ -1,6 +1,4 @@
 import { ProjectService } from '@/common/api'
-import _ from 'lodash';
-
 
 // initial state
 export const state = {
@@ -26,25 +24,17 @@ export const actions = {
 
     projects(context, filter){
         ProjectService.init();
-        console.log(filter);
 
         return new Promise((resolve, reject) => {
             ProjectService.projects(filter.locale)
             .then(({ data }) => {
-                console.log(data);
-                var categories = [];
-                _.forEach(data, function(project){
-                    console.log(project.category);
-                    categories.push(project.category);
-                })
-                console.log("after getted categories");
-
-                console.log(this.categories);
+                var categories = _.uniq(_.map(data, 'category'));
+                console.log(categories);
                 context.commit("categories", categories);
 
                 if (!_.trim(filter.category)) {
                     context.commit("projects", data);
-                    console.log(JSON.stringify(this.data));
+                    console.log(JSON.stringify(data));
                     resolve(data);
                 } else {
                     var projects = data;
@@ -55,7 +45,7 @@ export const actions = {
                             }});
                     }
                     context.commit("projects", projects);
-                    console.log(JSON.stringify(this.projects));
+                    console.log(JSON.stringify(projects));
                     resolve(data);
                 }
             })

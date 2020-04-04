@@ -16,26 +16,41 @@ Vue.use(VueI18n)
 const messages = {
   en: {
     "menu": {
-      "about": "About",
-      "projects": "Portfolio",
-      "presentations": "Presentations",
-      "blog": "Blog"
+      "about": "about",
+      "projects": "portfolio",
+      "presentations": "slideshare",
+      "blog": "blog",
+      "locale": {
+        "english": "english",
+        "french": "french",
+        "spanish": "spanish"
+      }
     }
   },
   fr: {
     "menu": {
-      "about": "Biographie",
-      "projects": "Portfolio",
-      "presentations": "Presentations",
-      "blog": "Blog"
+      "about": "biographie",
+      "projects": "portfolio",
+      "presentations": "presentations",
+      "blog": "blog",
+      "locale": {
+        "english": "anglais",
+        "french": "francais",
+        "spanish": "espagnol"
+      }
     }
   },
   es: {
     "menu": {
-      "about": "Biografia",
-      "projects": "Proyectos",
-      "presentations": "Presentaciones",
-      "blog": "Blog"
+      "about": "biografia",
+      "projects": "proyectos",
+      "presentations": "slideshare",
+      "blog": "blog",
+      "locale": {
+        "english": "ingles",
+        "french": "frances",
+        "spanish": "español"
+      }
     }
   }
 };
