@@ -4,11 +4,16 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { BIOGRAPHY_API_URL, PROJECTS_API_URL} from '@/common/config'
 
-import { cacheAdapterEnhancer, throttleAdapterEnhancer } from 'axios-extensions';
+import { Cache, cacheAdapterEnhancer, throttleAdapterEnhancer } from 'axios-extensions';
+
+
+var localeCaches = new Object();
+localeCaches.en = new Cache();
+localeCaches.fr = new Cache();
+localeCaches.es = new Cache();
 
 export const BaseApi = {
 
-  
   init () {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.adapter = throttleAdapterEnhancer(cacheAdapterEnhancer(Vue.axios.defaults.adapter));
@@ -26,17 +31,17 @@ export const BaseApi = {
     Vue.axios.defaults.headers.common['Cache-Control'] = 'no-cache';
   },
 
-  query (resource, params) {
+  query (locale, resource, params) {
     return Vue.axios
-      .get(resource, params)
+      .get(resource, params, {cache: localeCaches[locale]})
       .catch((error) => {
         throw new Error(`[portfolio] BaseApi ${error}`)
       })
   },
 
-  get (resource, slug = '') {
+  get (locale, resource, slug = '') {
     return Vue.axios
-      .get(`${resource}/${slug}`)
+      .get(`${resource}/${slug}`, {cache: localeCaches[locale]})
       .catch((error) => {
         throw new Error(`[portfolio] BaseApi ${error}`)
       })
@@ -76,9 +81,8 @@ export const BiographyService = {
 
     about(locale){
       BaseApi.setLocale(locale);
-      return BaseApi.get(locale, 'api/resume/biography');
+      return BaseApi.get(locale, "api/resume", 'biography');
     },
-
 }
 
 
@@ -93,7 +97,7 @@ export const ProjectService = {
 
   projects(locale){
     BaseApi.setLocale(locale);
-    return BaseApi.get(locale, 'api/projects');
+    return BaseApi.get(locale, "api", 'projects');
   },
 
 }

@@ -23,7 +23,6 @@ export const actions = {
         BiographyService.init();
 
         return new Promise((resolve, reject) => {
-            console.log(locale);
             BiographyService.about(locale)
             .then(({ data }) => {
                 context.commit("biography", data);
@@ -42,7 +41,6 @@ export const actions = {
 // mutations
 export const mutations = {
     biography(state, data){
-        console.log(JSON.stringify(data));
         state.biography = data;
     }
 }

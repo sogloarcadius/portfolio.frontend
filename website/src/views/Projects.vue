@@ -64,16 +64,12 @@ export default {
 
     watch: {
         '$root.$i18n.locale': function(newlocale, oldlocale) {
-            console.log(oldlocale);
-            console.log(newlocale);
             this.fetchProjects('');
         }
     },
 
     methods: {
-
         fetchProjects(category){
-            console.log(category);
             var filter = {
                 "category" : category,
                 "locale": this.$root.$i18n.locale

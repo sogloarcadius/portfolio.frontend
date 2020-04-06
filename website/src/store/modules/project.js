@@ -29,12 +29,10 @@ export const actions = {
             ProjectService.projects(filter.locale)
             .then(({ data }) => {
                 var categories = _.uniq(_.map(data, 'category'));
-                console.log(categories);
                 context.commit("categories", categories);
 
                 if (!_.trim(filter.category)) {
                     context.commit("projects", data);
-                    console.log(JSON.stringify(data));
                     resolve(data);
                 } else {
                     var projects = data;
@@ -45,7 +43,6 @@ export const actions = {
                             }});
                     }
                     context.commit("projects", projects);
-                    console.log(JSON.stringify(projects));
                     resolve(data);
                 }
             })

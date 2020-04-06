@@ -47,7 +47,6 @@ export default {
   
   methods: {
     fetchBiography() {
-      console.log("called");
       this.$store
         .dispatch("about/biography", this.$root.$i18n.locale)
         .then(() => this.$router.push({ name: "home" })).catch(err => {})
