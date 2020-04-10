@@ -30,7 +30,7 @@
           <li class="nav-item">
             <div class="row justify-content-center">
               <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.presentations")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fab fa-slideshare"></i></a>
-              <a class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fas fa-blog"></i></a>
+              <a class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/blog/" target="_blank"><i class="fas fa-blog"></i></a>
             </div>
           </li>
         </ul>
