@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    ui:
+        image: sogloarcadius/portfolio_frontend:https
+        build: 
+            context: .
+            dockerfile: ./Dockerfile.https
+            args:
+                BIOGRAPHY_API_URL: ${BIOGRAPHY_API_URL}
+                PROJECTS_API_URL: ${PROJECTS_API_URL}
+        ports:
+            - "80:80"
+            - "443:443"

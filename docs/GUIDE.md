@@ -72,5 +72,7 @@ docker-compose -f docker-compose.httponly.yaml build --build-arg BIOGRAPHY_API_U
 docker-compose -f docker-compose.httponly.yaml up -d 
 
 # https
+docker-compose -f docker-compose.https.yaml build --build-arg BIOGRAPHY_API_URL --build-arg PROJECTS_API_URL
+docker-compose -f docker-compose.https.yaml up -d 
 
 ```

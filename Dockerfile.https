@@ -67,14 +67,15 @@ COPY --from=build-stage /app/dist /app
 COPY media/humans.txt /media/humans.txt
 COPY media/robots.txt /media/robots.txt
 
-# nginx httponly
+# nginx https
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-COPY confs/nginx-httponly.conf /etc/nginx/sites-available/default
+COPY confs/nginx-https.conf /etc/nginx/sites-available/default
 
 # supervisor
 COPY confs/supervisor-app.conf /etc/supervisor/conf.d/
 
 EXPOSE 80
+EXPOSE 443
 
 WORKDIR /app
 
