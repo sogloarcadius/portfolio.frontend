@@ -1,0 +1,78 @@
+
+######################
+##  BUILD STAGE   ####
+######################
+
+FROM node:latest as build-stage
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
+    && tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.6.1.tar.gz
+WORKDIR /app
+COPY app/package*.json ./
+RUN npm install
+COPY app/ ./
+COPY confs/config.production.js ./
+ARG BIOGRAPHY_API_URL
+ARG PROJECTS_API_URL
+ENV BIOGRAPHY_API_URL $BIOGRAPHY_API_URL
+ENV PROJECTS_API_URL $PROJECTS_API_URL
+RUN dockerize -template config.production.js:src/common/config.js
+RUN npm run build
+
+
+##########################
+##   PRODUCTION STAGE   ##
+##########################
+
+
+FROM ubuntu:18.04 as production-stage
+
+LABEL maintainer.fullname="SOGLO Arcadius"
+LABEL maintainer.email="rtsoglo@gmail.com"
+
+## default ubuntu docker image doesn't have en-US.UTF-8
+RUN apt update --fix-missing && apt install locales
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+
+RUN apt update && \
+    apt upgrade -y && \ 	
+    apt install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh && \
+    bash nodesource_setup.sh
+
+# Install required packages and remove the apt packages cache when done.
+RUN apt update && \
+    apt upgrade -y && \ 	
+    apt install -y \
+	build-essential \
+	nginx \
+    nodejs \
+	wget \
+	supervisor && \
+   rm -rf /var/lib/apt/lists/*
+
+
+
+# copy vue application from build stage
+RUN mkdir /app
+COPY --from=build-stage /app/dist /app
+
+# media
+COPY media/humans.txt /media/humans.txt
+COPY media/robots.txt /media/robots.txt
+
+# nginx
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+COPY confs/nginx-default.conf /etc/nginx/sites-available/default
+
+# supervisor
+COPY confs/supervisor-app.conf /etc/supervisor/conf.d/
+
+EXPOSE 80
+
+WORKDIR /app
+
+CMD ["supervisord", "-n"]

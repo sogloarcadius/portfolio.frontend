@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+                                
+/* TEAM */
+                            
+Software Engineer: SOGLO Arcadius.                         
+Site: rtsoglo@gmail.com                        
+Twitter: @sogloarcadius.                       
+Location: Rennes, FRANCE.
+                    
+/* THANKS */
+       
+Thank to VueJS foundation for this amazing framework
+                                          
+/* SITE */
+
+Last update: 11/04/2020                             
+Standards: VueJS                            
+Components: VueJS                            
+Software: @restapi @javascript @axios
+    
+                        
+
+
+                    
