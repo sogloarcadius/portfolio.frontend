@@ -2,7 +2,7 @@ version: '3'
 
 services:
     ui:
-        image: sogloarcadius/portfolio_frontend:https
+        image: sogloarcadius/portfolio-frontend:https
         build: 
             context: .
             dockerfile: ./Dockerfile.https

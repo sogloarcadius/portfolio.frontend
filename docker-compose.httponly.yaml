@@ -2,7 +2,7 @@ version: '3'
 
 services:
     ui:
-        image: sogloarcadius/portfolio_frontend:httponly
+        image: sogloarcadius/portfolio-frontend:httponly
         build: 
             context: .
             dockerfile: ./Dockerfile.httponly
