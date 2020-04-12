@@ -15,11 +15,18 @@ RUN npm install
 
 ARG BIOGRAPHY_API_URL
 ARG PROJECTS_API_URL
+ARG SYSLOG_HOST
+ARG SYSLOG_PORT
+
 ENV BIOGRAPHY_API_URL $BIOGRAPHY_API_URL
 ENV PROJECTS_API_URL $PROJECTS_API_URL
+ENV SYSLOG_HOST $SYSLOG_HOST
+ENV SYSLOG_PORT $SYSLOG_PORT
+
 COPY app/ ./
 COPY confs/vue-config.js ./
-RUN dockerize -template vue-config.js:src/common/config.js
+COPY confs/nginx-httponly.template.conf ./
+RUN dockerize -template vue-config.js:src/common/config.js -template nginx-httponly.template.conf:nginx-httponly.final.conf
 RUN npm run build
 
 
@@ -69,7 +76,7 @@ COPY media/robots.txt /media/robots.txt
 
 # nginx httponly
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-COPY confs/nginx-httponly.conf /etc/nginx/sites-available/default
+COPY --from=build-stage /app/nginx-httponly.final.conf /etc/nginx/sites-available/default
 
 # supervisor
 COPY confs/supervisor-app.conf /etc/supervisor/conf.d/

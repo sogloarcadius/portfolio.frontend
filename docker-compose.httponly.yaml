@@ -1,7 +1,13 @@
 version: '3'
 
 services:
-    ui:
+    syslog-ng:
+        image: balabit/syslog-ng
+        command: "--no-caps"
+        volumes :
+            - ./confs/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
+            - /var/log:/var/log/
+    frontend:
         image: sogloarcadius/portfolio-frontend:httponly
         build: 
             context: .
@@ -9,5 +15,10 @@ services:
             args:
                 BIOGRAPHY_API_URL: ${BIOGRAPHY_API_URL}
                 PROJECTS_API_URL: ${PROJECTS_API_URL}
+                SYSLOG_HOST: ${SYSLOG_HOST}
+                SYSLOG_PORT: ${SYSLOG_PORT}
         ports:
             - "80:80"
+        depends_on:
+            - syslog-ng
+        

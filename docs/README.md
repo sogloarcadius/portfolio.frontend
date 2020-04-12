@@ -68,11 +68,11 @@ PROJECTS_API_URL=http://192.168.1.17:8000
 
 # http only
 
-docker-compose -f docker-compose.httponly.yaml build --build-arg BIOGRAPHY_API_URL --build-arg PROJECTS_API_URL
+docker-compose -f docker-compose.httponly.yaml build
 docker-compose -f docker-compose.httponly.yaml up -d 
 
 # https
-docker-compose -f docker-compose.https.yaml build --build-arg BIOGRAPHY_API_URL --build-arg PROJECTS_API_URL
+docker-compose -f docker-compose.https.yaml build
 docker-compose -f docker-compose.https.yaml up -d 
 
 ```
