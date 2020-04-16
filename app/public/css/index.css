@@ -1,4 +1,22 @@
 
+/* Begin Mobile */
+
+@media (min-width: 0px) and (max-width: 992px) {
+  #mobilonly {
+    color:  #000000;
+    background-color: #BD5D38;
+  }
+}
+
+@media (min-width: 992px) {
+  #mobilonly {
+    display: none;
+  }
+}
+
+/* End Mobile  */
+
+
 body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-top: 54px;

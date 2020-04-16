@@ -12,6 +12,11 @@
                 <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.spanish")' @click="changeLocale('es')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/es.png" alt="" />
                 </a>
+                <!-- Mobile -->
+                <router-link id="mobilonly" class="nav-link"  :to="{ name: 'home' }"><a><i class="fas fa-home"></i></a></router-link>
+                <router-link id="mobilonly" class="nav-link"  :to="{ name: 'projects' }"><a><i class="fas fa-th"></i></a></router-link>
+                <a id="mobilonly" class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.presentations")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fab fa-slideshare"></i></a>
+                <a id="mobilonly" class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/blog/" target="_blank"><i class="fas fa-blog"></i></a>
             </div>
       </div>
       <a class="navbar-brand" href="#">
