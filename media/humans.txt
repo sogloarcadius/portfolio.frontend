@@ -14,7 +14,7 @@ Thank to VueJS foundation for this amazing framework
                                           
 /* SITE */
 
-Last update: 11/04/2020                             
+Last update: 16/04/2020                             
 Standards: VueJS                            
 Components: VueJS                            
 Software: @restapi @javascript @axios
