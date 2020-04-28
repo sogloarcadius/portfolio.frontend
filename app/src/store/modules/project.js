@@ -1,12 +1,10 @@
 import { ProjectService } from '@/common/api'
 
-// initial state
 export const state = {
-    projects: null,
-    categories: null
+    projects: [],
+    categories: []
 }
 
-// getters
 export const getters = {
 
     projects(state) {
@@ -19,7 +17,6 @@ export const getters = {
 }
 
 
-// actions
 export const actions = {
 
     projects(context, filter){
@@ -56,7 +53,6 @@ export const actions = {
 }
 
 
-// mutations
 export const mutations = {
     projects(state, data){
         state.projects = data;

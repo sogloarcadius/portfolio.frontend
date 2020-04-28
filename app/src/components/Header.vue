@@ -3,20 +3,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <div class="nav-item">
             <div class="row">
-                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.english")' @click="changeLocale('en')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :title='$t("menu.locale.english")' @click="changeLocale('en')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/en.png" alt="" />
                 </a>
-                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.french")' @click="changeLocale('fr')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :title='$t("menu.locale.french")' @click="changeLocale('fr')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/fr.png" alt="" />
                 </a>
-                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.locale.spanish")' @click="changeLocale('es')">
+                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :title='$t("menu.locale.spanish")' @click="changeLocale('es')">
                     <img class="img-fluid img-profile  mx-auto mb-2" src="@/assets/img/es.png" alt="" />
                 </a>
                 <!-- Mobile -->
                 <router-link id="mobilonly" class="nav-link"  :to="{ name: 'home' }"><a><i class="fas fa-home"></i></a></router-link>
                 <router-link id="mobilonly" class="nav-link"  :to="{ name: 'projects' }"><a><i class="fas fa-th"></i></a></router-link>
-                <a id="mobilonly" class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.presentations")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fab fa-slideshare"></i></a>
-                <a id="mobilonly" class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/blog/" target="_blank"><i class="fas fa-blog"></i></a>
+                <router-link id="mobilonly" class="nav-link"  :to="{ name: 'resources' }"><a><i class="fas fa-link"></i></a></router-link>
             </div>
       </div>
       <a class="navbar-brand" href="#">
@@ -33,10 +32,7 @@
               <router-link class="nav-link"  :to="{ name: 'projects' }"><a>{{ $t("menu.projects") }}</a></router-link>
           </li>
           <li class="nav-item">
-            <div class="row justify-content-center">
-              <a class="nav-link" data-toggle="tooltip" data-placement="bottom" :data-original-title='$t("menu.presentations")' href="https://sogloarcadius.github.io/presentations/" target="_blank"><i class="fab fa-slideshare"></i></a>
-              <a class="nav-link" data-toggle="tooltip" data-placement="right"  :data-original-title='$t("menu.blog")' href="https://sogloarcadius.github.io/blog/" target="_blank"><i class="fas fa-blog"></i></a>
-            </div>
+              <router-link class="nav-link"  :to="{ name: 'resources' }"><a>{{ $t("menu.resources") }}</a></router-link>
           </li>
         </ul>
       </div>

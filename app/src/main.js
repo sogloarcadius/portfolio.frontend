@@ -16,6 +16,8 @@ Vue.use(VueI18n)
 const messages = {
   en: {
     "menu": {
+      "resources": "resources",
+      "all": "all",
       "about": "about",
       "projects": "portfolio",
       "presentations": "slideshare",
@@ -29,6 +31,8 @@ const messages = {
   },
   fr: {
     "menu": {
+      "resources": "ressources",
+      "all": "tous",
       "about": "biographie",
       "projects": "portfolio",
       "presentations": "presentations",
@@ -42,6 +46,8 @@ const messages = {
   },
   es: {
     "menu": {
+      "resources": "recursos",
+      "all": "todos",
       "about": "biografia",
       "projects": "proyectos",
       "presentations": "slideshare",

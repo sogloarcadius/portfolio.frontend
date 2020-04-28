@@ -1,25 +1,20 @@
 import { BiographyService } from '@/common/api'
 
 
-// initial state
 export const state = {
     biography: null
 }
 
 
-// getters
 export const getters = {
     biography(state) {
         return state.biography;
     }
 }
 
-
-// actions
 export const actions = {
 
     biography(context, locale){
-        console.log("action trigerred");
         BiographyService.init();
 
         return new Promise((resolve, reject) => {
@@ -38,7 +33,6 @@ export const actions = {
 }
 
 
-// mutations
 export const mutations = {
     biography(state, data){
         state.biography = data;
