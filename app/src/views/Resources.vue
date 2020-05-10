@@ -51,7 +51,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title mb-0">feelshare</h5>
                             <div class="card-text text-black-50">
-                                <a class="nav-link" href="https://play.google.com/store/apps/details?id=io.soglomania.appfeelshare" target="_blank"><i class="fas fa-link"></i></a>
+                                <a class="nav-link" href="https://play.google.com/store/apps/details?id=io.sogloarcadius.feelshare" target="_blank"><i class="fas fa-link"></i></a>
                             </div>
                         </div>
                     </div>
